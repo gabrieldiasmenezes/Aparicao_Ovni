@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <title>Aparições de Ovnis</title>
+</head>
+<body>
+
+<h1 class="p-8 text-primary">Aparições de Ovnis</h1>
+
+<a href="/ovni/form" class="btn btn-primary">Novas Aparições</a>
+
+<div th:if="${message}" role="alert" class="alert alert-success alert-soft m-8">
+    <span th:text="${message}"></span>
+</div>
+
+<main class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-8 place-items-center ">
+    <div th:each="ovni : ${ovnis}" class="card w-96 bg-base-300 card-md shadow-sm">
+        <div class="badge badge-accent m-4" th:text="${ovni.quant + ' pts'}"></div>
+        <div class="card-body items-center">
+            <h2 class="card-title" th:text="${ovni.location}"></h2>
+            <p th:text="${ovni.data}"></p>
+            <p th:text="${ovni.shape}"></p>
+            <p th:text="${ovni.color}"></p>
+        </div>
+        <div class="justify-end card-actions m-4">
+            <button class="btn btn-error btn-soft">Excluir</button>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>

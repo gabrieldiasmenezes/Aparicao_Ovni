@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <title>Ovnis</title>
+</head>
+<body>
+
+<h1 class="p-8 text-primary">Ovnis</h1>
+
+<main class="grid place-items-center p-8 ">
+    <h2 class="font-bold text-xl">Novo Shifting</h2>
+    <form method="POST" class="w-full max-w-md">
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Location</legend>
+            <input name="location" type="text" class="input" placeholder="Localização da aparição" required />
+            <p class="label">campo obrigatório</p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Date and Time</legend>
+            <input name="data" type="datetime-local" placeholder="Data e Hora da aparição" class="input" required />
+            <p class="label">campo obrigatório</p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Color</legend>
+            <input name="color" type="text" class="range range-secondary" />
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Shape</legend>
+            <input name="shape" id="shape-range" type="text" class="enum" />
+            <p id="shape-label" class="label"></p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Quantity of Objects</legend>
+            <input name="quant" id="score-range" type="range" min="1" max="100" value="40" class="range range-secondary" />
+            <p id="score-label" class="label">40 pts</p>
+        </fieldset>
+
+        <div class="flex justify-between max-w-md">
+            <a href="/ovnis" class="btn btn-soft">Cancelar</a>
+            <button class="btn btn-soft btn-primary">Cadastrar</button>
+        </div>
+    </form>
+</main>
+
+<script>
+    document.querySelector("#score-range").addEventListener("input", (e) => {
+        const label = document.querySelector("#score-label")
+        label.textContent = e.target.value + " pts"
+    })
+</script>
+
+</body>
+</html>
